@@ -18,7 +18,7 @@ def print_header
 end
 
 def print_names(array)
-  array.each_with_index {|student, index| puts "#{index+1}. #{student[:name]}, #{student[:cohort]} cohort"}
+  array.each {|student| puts "#{student[:name]}, #{student[:cohort]} cohort"}
 end
 
 def print_footer(array)
@@ -30,3 +30,20 @@ print_header
 print_names(students)
 print_footer(students)
 
+
+=begin
+students = [
+  {name: "Dr. Hannibal Lecter", cohort: "April"},
+  {name: "Darth Vader", cohort: "April"},
+  {name: "Nurse Ratched", cohort: "April"},
+  {name: "Michael Corleone", cohort: "April"},
+  {name: "Alex DeLarge", cohort: "April"},
+  {name: "The Wicked Witch of the West", cohort: "April"},
+  {name: "Terminator", cohort: "April"},
+  {name: "Freddy Krueger", cohort: "April"},
+  {name: "The Joker", cohort: "April"},
+  {name: "Joffrey Baratheon", cohort: "April"},
+  {name: "Norman Bates", cohort: "April"}
+]
+
+=end
