@@ -1,4 +1,5 @@
-#Modify your program to only print the students whose name begins with a specific letter.
+
+#Modify your program to only print the students whose name is shorter than 12 characters.
 
 def input_students
 	puts "Please enter names of students. \nAfter each name hit enter. \nTo exit press enter twice."
@@ -18,10 +19,9 @@ def print_header
   puts "-------"
 end
 
-def print_names(array, letter)
+def print_names(array, length)
   array.each {|student| 
-  	letter.downcase!
-  	unless student[:name].downcase.scan(/\b#{letter}/).empty?
+  	unless student[:name].chars.length < length
   		puts "#{student[:name]}, #{student[:cohort]} cohort" 
   	end
   }
@@ -33,5 +33,5 @@ end
 
 students = input_students
 print_header
-print_names(students, "S")
+print_names(students, 12)
 print_footer(students)
