@@ -1,5 +1,6 @@
 
-#Modify your program to only print the students whose name is shorter than 12 characters.
+#Modify your program to only print the students whose name is shorter than 12
+#characters.
 
 def input_students
 	puts "Please enter names of students. \nAfter each name hit enter. \nTo exit press enter twice."

@@ -1,4 +1,5 @@
-#Modify your program to only print the students whose name begins with a specific letter.
+#Modify your program to only print the students whose name begins with a
+#specific letter.
 
 def input_students
 	puts "Please enter names of students. \nAfter each name hit enter. \nTo exit press enter twice."

@@ -5,6 +5,7 @@ def input_students
   puts "Please enter names of students. \nAfter each name hit enter. \nTo exit press enter twice."
   students = []
   name = gets.chomp
+  
   while !name.empty? do
       students << {name: name, cohort: "April"}
       puts "Added #{students.last[:name]}"
