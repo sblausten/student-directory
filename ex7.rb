@@ -35,14 +35,7 @@ def input_students
   end
 
 def print_names(array)
-  cohort_month = "April"
-  cohort = array.map {|student| 
-    cohort = student.select {|key, value| (key == :cohort && value == cohort_month)} 
-
-    #puts cohort
-  }
-  puts "cohort = #{cohort}"
-  puts "Array = #{array}"
+  array.each {|student| student.each {|key, value| puts "#{key.to_s}: #{value}".center(70)}}
 end
 
   def print_footer(array)
