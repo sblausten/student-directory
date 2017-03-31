@@ -1,7 +1,7 @@
-#Once you complete the previous exercise, change the way the users are
-#displayed: print them grouped by cohorts. To do this, you'll need to get a
-#list of all existing cohorts (the map() method may be useful but it's not the
-#only option), iterate over it and only print the students from that cohort.
+#Right now if we have only one student, the user will see a message "Now we
+#have 1 students", whereas it should be "Now we have 1 student". How can you
+#fix it so that it used singular form when appropriate and plural form
+#otherwise?
 
 def input_students
   puts "Please enter names of students. \nAfter each name hit enter. \nTo exit press enter twice."
@@ -40,8 +40,10 @@ def print_names(array)
 end
 
 def print_footer(array)
-  puts "Overall we have #{array.count} great students."
+  number = array.count
+  puts "Overall we have #{number} great student#{p "s" ? number <= 1}."
 end
+
 
 students = input_students
 print_header
