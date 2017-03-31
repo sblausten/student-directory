@@ -1,8 +1,9 @@
-#Rewrite the each() method that prints all students using while or until
-#control flow methods (Loops).
+#Our code only works with the student name and cohort. Add more information:
+#hobbies, country of birth, height, etc.
 
 def input_students
-  puts "Please enter names of students. \nAfter each name hit enter. \nTo exit press enter twice."
+  instructions = "Please enter names of students.\nAfter each name hit enter.\nTo exit press enter twice."
+  instructions.each_line{|l| puts l.center(70)}
   students = []
   name = gets.chomp
   while !name.empty? do
@@ -32,14 +33,14 @@ def input_students
   end
 
 def print_names(array)
-  array.each {|student| puts "#{student}"}
+  array.each {|student| student.each {|key, value| puts "#{key.to_s}: #{value}".center(70)}}
 end
 
   def print_footer(array)
-    puts "Overall we have #{array.count} great students."
+    puts "Overall we have #{array.count} great students.".center(70)
   end
 
   students = input_students
   print_header
-  print_names(students)
-  print_footer(students)
+  print_names students
+  print_footer students
