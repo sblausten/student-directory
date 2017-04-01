@@ -3,6 +3,9 @@
 #fix it so that it used singular form when appropriate and plural form
 #otherwise?
 
+
+
+
 def input_students
   puts "Please enter names of students. \nAfter each name hit enter. \nTo exit press enter twice."
   puts 'If you make a mistake, enter "typo" in the next entry and then try again' #What if the user makes a typo?
@@ -10,11 +13,9 @@ def input_students
   name = gets.chomp.downcase.to_sym
   while !name.empty?
     p "Which cohort are they in?"
-    cohort = gets.chomp.downcase.to_sym #The input will be given to you as a string? How will
-    #you convert it to a symbol?
+    cohort = gets.chomp.downcase.to_sym 
     if cohort.empty?
-      cohort = :unknown #What if one of the values is empty? Can you
-      #supply a default value?
+      cohort = :unknown 
     elsif cohort == :typo
       redo
     end
@@ -41,7 +42,7 @@ end
 
 def print_footer(array)
   number = array.count
-  puts "Overall we have #{number} great student#{p "s" ? number <= 1}."
+  puts "Overall we have #{number} great student #{'s' if number > 1}" 
 end
 
 
