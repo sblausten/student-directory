@@ -95,6 +95,8 @@ def try_load_students
     p "Loaded #{@students.count} from #{filename}"
   else
     p "sorry, #{filename} doesn't exist"
+    load_students("students.csv")
+    p "Loaded default file instead. #{@students.count} students were added."
     exit!
   end
 end
