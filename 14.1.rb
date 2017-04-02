@@ -1,6 +1,5 @@
 @students = []
 
-
 def print_menu
   p "1. Input the students"
   p "2. Show the students"
@@ -91,20 +90,20 @@ def try_load_students
   filename = ARGV.first
   if filename.nil?
   	load_students
-    p "Loaded students.csv. #{@students.count} students were added."
-  end
-  if filename.nil?
-  	return
+    p "Loaded students.csv. #{@students.count} students were loaded."
   elsif File.exists?(filename)
     load_students(filename)
     p "Loaded #{@students.count} from #{filename}"
   else
     p "sorry, #{filename} doesn't exist"
     load_students("students.csv")
-    p "Loaded default file instead. #{@students.count} students were added."
-    exit!
+    p "Loaded default file instead. #{@students.count} students were loaded."
   end
 end
 
-try_load_students
-interactive_menu
+def startup
+	try_load_students
+	interactive_menu
+end
+
+startup
