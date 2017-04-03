@@ -1,3 +1,4 @@
+require 'csv'
 @students = []
 
 def print_menu
@@ -32,10 +33,6 @@ def process(selection)
   end
 end
 
-def add_students name, cohort="April"
-  @students << {name: name, cohort: cohort}
-end
-
 def input_students
   puts "Please enter names of students. \nAfter each name hit enter. \nTo exit press enter twice."
   name = STDIN.gets.chomp
@@ -67,23 +64,26 @@ def input_students
   end
 
   def save_students
-    file = File.open("students.csv", "w")
+    file = CSV.open("students.csv", "wb")
     @students.each { |student|
       student_data = [student[:name], student[:cohort]]
       line = student_data.join(",").to_s
       file.puts line
     }
-    file.close
     puts "Students saved."
   end
 
+  def add_students name, cohort="April"
+    @students << {name: name, cohort: cohort}
+  end
+
+  extract = lambda do |line| 
+    name, cohort = line.chomp.split(",")
+    add_students(name, cohort)
+  end
+
   def load(filename = "students.csv")
-    File.open filename, "r" do |file|
-	    file.readlines.each { |line|
-	      name, cohort = line.chomp.split(",")
-	      add_students(name, cohort)
-	    }
-    end
+    CSV.foreach(filename, &extract)
     puts "Loaded #{@students.count} students from #{filename}"
   end
 
